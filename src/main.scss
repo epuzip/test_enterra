@@ -1,0 +1,41 @@
+$background: url('./assets/img/bg_tr\ 1.png');
+$white: #fff;
+$accent-color-normal : #7747E5;
+
+body {
+    background: $background;
+    
+}
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.header_icon {
+    text-decoration: none;
+    color: $white;
+    font-family: Work Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+
+}
+.container_items {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+
+}
+.container__btn {
+    color: $white;
+    background-color: $accent-color-normal;
+    text-align: center;
+    font-family: Work Sans;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 30px;
+    border-radius: 12px;
+    border: none;
+}
