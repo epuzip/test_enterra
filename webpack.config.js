@@ -5,11 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: path.join(__dirname, 'src', 'index.js'),
-    
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'index.[contenthash].js',
-        assetModuleFilename: path.join('images', '[name].[contenthash][ext]'),
+        assetModuleFilename: path.join('images', '[name][ext]'),
     },
     module: {
         rules: [
@@ -22,15 +21,19 @@ module.exports = {
             test: /\.(scss|css)$/,
             use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
         },
-        {
-            test: /\.(png|jpg|jpeg|gif)$/i,
+        {           
+            test: /\.png$/,
             type: 'asset/resource',
         },
         {
+            test: /\.(jpg|jpeg|gif)$/i,
+            use: ['url-loader', 'file-loader'],
+        },
+        {
             test: /\.svg$/,
-            type: 'asset/resource',
+            use: 'file-loader',
             generator: {
-            filename: path.join('icons', '[name].[contenthash][ext]'),
+                filename: path.join('[name][ext]'),
             },
         },
         ],
