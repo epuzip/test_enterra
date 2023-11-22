@@ -8,7 +8,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'index.[contenthash].js',
-        assetModuleFilename: path.join('images', '[name][ext]'),
+        assetModuleFilename: path.join('assets', '[name][ext]'),
     },
     module: {
         rules: [
@@ -30,8 +30,8 @@ module.exports = {
             use: ['url-loader', 'file-loader'],
         },
         {
-            test: /\.svg$/,
-            use: 'file-loader',
+            test: /\.(eot|svg|ttf|woff|woff2)$/,
+            use: ['url-loader', 'file-loader'],
             generator: {
                 filename: path.join('[name][ext]'),
             },
